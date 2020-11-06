@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/pure-min.css">
+    <link rel="stylesheet" href="static/style.css?v=a7">
+  </head>
+  <body>
+    <h1>管理ページ</h1>
+    {% for f in files %}
+      <p>
+        {{ f.name }}さん - {{ f.memo }} - {{f.time_limit | datetime }} -
+        {{ f.count }}回<br>
+        <a href="/admin/remove/{{ f.id }}?pw{{ pw }}">消去</a>
+         -
+         <a href="\download\{{ f.id }}">ダウンロード</a>
+      </p>
+    {% endfor %}
+  </body>
+</html>
